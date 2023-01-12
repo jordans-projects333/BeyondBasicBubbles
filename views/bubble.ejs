@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="/productsCollection.js"></script>
+    <link rel="stylesheet" href="/icons/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/bannerPreload.js"></script>
+    <!-- <script src="settings.js"></script>
+    <script async src="dataCollection.js"></script>
+    <script defer src="dataAppending.js"></script> -->
+    <title>Bubbles</title>
+</head>
+<body>
+    <!-- Header ------------------------------------------------------------------------------------------------------------------------------------->
+    <header>
+        <img class="header__logo" src="./images/headerLogo.png">
+        <h1 class="header__title">Beyond Basic Bubbles</h1>
+        <div class="header__content">
+            <!-- Navigation -->
+            <div class="tranparent__overlay" onclick="menuToggle()"></div>
+            <nav>
+                <ul class="navbar-list-container">
+                    <li class="list__container--main active"><i class="fa-solid fa-house"></i>Home</li>
+                    <li class="list__container--main"><i class="fa-solid fa-cart-shopping"></i>Cart</li>
+                    <li class="list__container--main"><i class="fa-regular fa-image"></i>gallery</li>
+                    <!-- <li>socials</li>-------------- -->
+                    <!-- <li>currency</li> -->
+                    <li id="navListFirst" class="list__container--secondary"><button onclick="getInfoPage('#info__section--about', 40); menuToggle()">-About</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--contact'); menuToggle()">-Contact</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--subscriptions'); menuToggle()">-Subscriptions</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--contact'); menuToggle()">-Custom order</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--delivery'); menuToggle()">-Delivery</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--bonus'); menuToggle()">-Discounts & bonuses</button></li>
+                    <li class="list__container--secondary"><button onclick="menuToggle(); goToNewsletter(); closeInfoPage()">-Newsletter</button></li>
+                    <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--privacy'); menuToggle()">-Privacy & cookies</button></li>
+                    <li class="list__item--currency">
+                        <div class="nav__currency--display">-Currency: GBP <i class="fa-solid fa-chevron-up"></i></div>
+                        <select class="nav__currency--select" onchange="selectedCurrency(this)">
+                            <option class="footer__currency--firstOption" style="display:none;" selected>£-GBP</option>
+                        </select>
+                    </li>
+                </ul>
+                <div class="nav__socials">
+                    <ul>
+                        <li><i class="fa-brands fa-facebook-f"></i></li>
+                        <li><i class="fa-brands fa-instagram"></i></li>
+                        <li><i class="fa-brands fa-tiktok"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                    </ul>
+                </div>
+            </nav>
+            <button class="header__content--user"><i class="fa-solid fa-user"></i></button>
+            <button class="header__content--cart"><i class="fa-solid fa-cart-plus"></i></button>
+            <!-- Menu -->
+            <button class="header__content--button">
+                <span class="content__menu--bar"></span>
+                <span class="content__menu--bar"></span>
+                <span class="content__menu--bar"></span>
+            </button>
+        </div>
+    </header>
+    <main class="main__content--shiftLeft">
+        <section class="main__banner">
+            <div class="main__banner--socials">
+                <ul>
+                    <li><i class="fa-brands fa-facebook-f"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-tiktok"></i></li>
+                    <li><i class="fa-brands fa-twitter"></i></li>
+                </ul>
+            </div>
+            <div class="heading-section">
+                <h4 id="heading">Gift Sets, Skin Care, Bath & Body Products</h4>
+            </div>
+            <div class="logo-container">
+                <div class="logo-image-container">
+                    <div class="bubble-container">
+                        <div id="bubble1" class="bubble"></div>
+                        <div id="bubble2" class="bubble"></div>
+                        <div id="bubble3" class="bubble"></div>
+                        <div id="bubble4" class="bubble"></div>
+                        <div id="bubble5" class="bubble"></div>
+                        <div id="bubble6" class="bubble"></div>
+                        <div id="bubble7" class="bubble"></div>
+                        <div id="bubble8" class="bubble"></div>
+                        <div id="bubble9" class="bubble"></div>
+                        <div id="bubble10" class="bubble"></div>
+                        <div id="bubble11" class="bubble"></div>
+                        <div id="bubble12" class="bubble"></div>
+                        <div id="bubble13" class="bubble"></div>
+                        <div id="bubble14" class="bubble"></div>
+                        <div id="bubble15" class="bubble"></div>
+                        <div id="bubble16" class="bubble"></div>
+                    </div>
+                    <div class="logo-image-section1">
+                        <img class="logo-image1" src="/images/logoText.png">
+                        <img class="logo-image2" src="/images/logo.png">
+                    </div>
+                </div>
+            </div>
+            <!-- <link rel="stylesheet" href="intro.css"> -->
+        </section>
+        <h3 class="title__gallery">Gallery</h3>
+        <!-- <section class="section__gallery">
+            <div class="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <img class="gallery__item--image" src="./img/gallery_image_1.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image_6.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image_3.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image_4.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image_5.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image2.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image_8.jpg" draggable="false">
+                <img class="gallery__item--image" src="./img/gallery_image7.jpg" draggable="false">
+            </div>
+        </section> -->
+        <section class="section__gallery">
+            <div class="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <div class="gallery__item--image"><img src="./img/gallery_image1.jpg" draggable="false" id="ttt4"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image6.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image3.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image4.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image5.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image2.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image8.jpg" draggable="false"></div>
+                <div class="gallery__item--image"><img src="./img/gallery_image7.jpg" draggable="false"></div>
+            </div>
+        </section>
+        <h3 class="title__products">Products</h3>
+        <section class="products">
+            <div class="filter glass">
+                <div class="filter-wrapper">
+                    <!-- <div class="filter-item">-</div> -->
+                    <!-- <div class="filter-item active-filter" onclick="filterClick(this)"> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-solid fa-gift"></i></i></div>
+                        <div class="filter-text">Sets</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-solid fa-bomb"></i></div>
+                        <div class="filter-text">Bath bombs</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-regular fa-gem"></i></i></div>
+                        <div class="filter-text">Rocks</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-solid fa-soap"></i></i></div>
+                        <div class="filter-text">Bars/Salts</div>
+                    </div>
+                    <div class="filter-slider"></div>
+                </div>
+            </div>
+            <div class="section__products--grid">
+                <template id="grid__item--template">
+                    <div class="products__grid--item" onclick="getProduct(this)">
+                        <img>
+                        <div class="grid__item--textWrapper">
+                            <h5 class="grid__item--price"></h5>
+                            <h5 class="grid__item--name"></h5>
+                            <div class="grid__item--nameFade"></div>
+                            <div class="grid__item--infoIcon"><i class="fa-solid fa-circle-info"></i></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+        <footer>
+            <div class="footer__links">
+                <ul>
+                    <li><button>Gallery</button></li>
+                    <li><button onclick="getInfoPage('#info__section--about')">About</button></li>
+                    <li><button onclick="getInfoPage('#info__section--contact')">Contact</li>
+                    <li><button onclick="getInfoPage('#info__section--subscriptions')">Subscriptions</button></li>
+                    <li><button onclick="getInfoPage('#info__section--contact')">Custom order</button></li>
+                    <li><button onclick="getInfoPage('#info__section--delivery')">Delivery</button></li>
+                    <li><button onclick="getInfoPage('#info__section--bonus')">Discounts & bonuses</button></li>
+                    <li><button onclick="getInfoPage('#info__section--privacy')">Privacy & cookies</button></li>
+                </ul>
+            </div>
+            <div class="footer__newsLetter">
+                <form id="footer__newsLetter--form">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input class="newsLetter__form--email" placeholder="Enter email" required type="email">
+                    <button type="submit"><i class="fa-solid fa-forward"></i></button>
+                    <h6>For new products and offers</h6>
+                </form>
+            </div>
+            <div class="footer__secondary__wrapper">
+                <div class="footer__currency">
+                    <h6 class="footer__currency--currencyDisplay">£-GBP<i class="fa-solid fa-chevron-up"></i></h6>
+                    <select onchange="selectedCurrency(this)">
+                        <option class="footer__currency--firstOption" style="display:none;" selected>£-GBP</option>
+                    </select>
+                </div>
+                <!-- <i class="fa-solid fa-angle-up"></i> -->
+                <div class="footer__socials">
+                    <ul>
+                        <li><i class="fa-brands fa-facebook-f"></i></li>
+                        <li><i class="fa-brands fa-instagram"></i></li>
+                        <li><i class="fa-brands fa-tiktok"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__final">
+                <h6>&copy2023 BeyondBasicBubbles</h6>
+                <div><button class="footer__final--button" onclick="getInfoPage('#info__section--privacy')">Privacy || cookies</button></div>
+            </div>
+        </footer>
+    </main>
+    <section class="section__profile--forms">
+        <div class="profile__forms--close"><i class="fa-solid fa-xmark"></i></div>
+        <h3 class="profile__forms--title">Create an account <br> to earn discounts</h3>
+        <div class="profile__forms--login">
+            <form id="forms__login--form" action="/login" method="POST">
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <label for="email">Email</label><br>
+                    <input type="text" name="email"><br>
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                    <input type="type" name="password">
+                </div>
+                <button class="form__submit--button" type="submit">login</button>
+            </form>
+        </div>
+        <div class="profile__forms--register">
+            <form id="forms__register--form" action="/register" method="POST">
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <label for="name">Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-at"></i>
+                    <label for="email">Email</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                    <input type="type" name="password">
+                </div>
+                <button class="form__submit--button" type="submit">Create account</button>
+            </form>
+        </div>
+    </section>
+    <section class="section__productPage">
+        <button class="back" onclick="backHome()"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="img-wrapper">
+                <img class="product-image" >
+            </div>
+            <div class="photo-bar-wrapper">
+                <div class="photo-bar photo-bar-active"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+                <div class="photo-bar"></div>
+            </div>
+            <div class="product-info">
+                <h4 class="product-title"></h4>
+                <h4 class="product-price"></h4>
+                <div class="description-wrapper">
+                    <h4>Description</h4>
+                    <h5 class="product-description"></h5>
+                    <div class="description-overlay"></div>
+                </div>
+                <button class="options">options</button>
+                <button class="addToCart" onclick="addedToCart(this)">Add to cart</button>
+            </div>
+            <h3 class="review-title">Reviews</h3>
+            <div class="reviews-wrapper">
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+            </div>
+    </section>
+    <section class="section__info">
+        <div class="info__wrapper--close">
+            <button onclick="closeInfoPage()">Close<i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="info__section--about">
+            <h3>About</h3>
+            <p>
+                Hi Everyone! I'm Katie, the proud owner of Beyond Basic Bubbles!
+                 I am a Biomedical scientist that spends most of my days in a research laboratory,
+                but when I am not there you'll find me in my cosmetic workshop!<br><br>
+                I aim to create vibrant and fun bath/shower products for all ages and with tonnes 
+                of help from my customers, I have grown so much in 2021 (not physically, I have still barely made 5ft)! 
+                Thank you so much everyone for such a fantastic year! Here's to 2022!
+            </p>
+        </div>
+        <div id="info__section--contact">
+            <h3>Contact/Request custom order</h3>
+            <p>
+                BeyondBasicBubbles@gmail.com<br>
+                or<br>
+                <button class="info__button--createAccount" onclick="profile()">Create account</button> to send message
+            </p>
+        </div>
+        <div id="info__section--subscriptions">
+            <h3>Subscriptions</h3>
+            <p>
+                Upon <button class="info__button--createAccount" onclick="profile()">creating an account</button> you can add items into a subscription basket to receive monthly packages
+            </p>
+        </div>
+        <div id="info__section--delivery">
+            <h3>Delivery</h3>
+            <p>
+                Estimated: 3-9 days<br>
+                returns Policy: Not accepted, if there is an issue with the order please message
+            </p>
+        </div>
+        <div id="info__section--bonus">
+            <h3>Discounts & bonuses</h3>
+            <p>
+                After creating an account you can earn points with purchases to spend
+                on discounts and bonuses. Subscribe to the <button class="info__button--newsletter" onclick="closeInfoPage(); goToNewsletter()">Newsletter</button> to be 
+                the first to know about special offers and new products
+            </p>
+        </div>
+        <div id="info__section--privacy">
+            <h3>Privacy and cookies policy</h3>
+            <p>
+                Cookies are small data files that are sent from the browser to the server, 
+                we use this data for analytics to improve the store. It is also used to store
+                your items in your basket<br><br>
+                </p>
+                <ul>
+                    <h4>Data we collect:</h4>
+                    <li>Items stored in basket(essential)</li>
+                    <li>Unique page view</li>
+                    <li>Returning page view</li>
+                    <li>What products have been viewed</li>
+                    <li>What products have been purchased</li>
+                </ul>
+                <br>
+                <p>
+                Non-essential data is stored as a whole so no unique user can be identified, targeted, or have info sold 
+                to third-partys. Beyond Basic Bubbles cares about your privacy and are committed to being fully transparent.
+                If you would prefer to disable or enable non-essential cookies you can do it here:</p><br>
+                <h5>Non-essential cookies</h5>
+                <div class="info__wrapper--cookies">
+                    <button class="info__button--cookies">Enable</button>
+                    <button class="info__button--cookies">Disable</button>
+                </div>
+        </div>
+    </section>
+    <!-- <script src="products-grid-items.js"></script> -->
+    <script src="/main.js"></script>
+    <script src="/currencyOptions.js"></script>
+</body>
+</html>

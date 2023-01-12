@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/blurhash.js"></script>
+    <script>const productsTotal = "<%= productTotal %>"; const lastServerUpdate = "<%= lastServerUpdate %>";</script>
+    <script async src="/productsCollection.js"></script>
+    <link rel="stylesheet" href="/icons/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/headerLoad.js"></script>
+    <title>Bubbles</title>
+</head>
+<body>
+    <!-- Header ------------------------------------------------------------------------------------------------------------------------------------->
+    <header class="hidden">
+        <img class="header__logo" src="/images/main/headerLogo.webp" onload="headerLoaded()">
+        <h1 class="header__title">
+            <span class="header__title--letter">B</span>
+            <span class="header__title--letter">e</span>
+            <span class="header__title--letter">y</span>
+            <span class="header__title--letter">o</span>
+            <span class="header__title--letter">n</span>
+            <span class="header__title--letter">d&nbsp;</span>
+            <span class="header__title--letter">B</span>
+            <span class="header__title--letter">a</span>
+            <span class="header__title--letter">s</span>
+            <span class="header__title--letter">i</span>
+            <span class="header__title--letter">c&nbsp;</span>
+            <span class="header__title--letter">B</span>
+            <span class="header__title--letter">u</span>
+            <span class="header__title--letter">b</span>
+            <span class="header__title--letter">b</span>
+            <span class="header__title--letter">l</span>
+            <span class="header__title--letter">e</span>
+            <span class="header__title--letter">s</span>
+        </h1>
+        <div class="header__content">
+            <!-- Navigation -->
+            <div class="tranparent__overlay" onclick="menuToggle()"></div>
+            <nav>
+                <div class="nav__content--wrapper">
+                    <ul class="navbar-list-container">
+                        <li class="list__container--main active"><i class="fa-solid fa-house"></i>Home</li>
+                        <li class="list__container--main"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i>Cart</a></li>
+                        <li class="list__container--main"><a href="/gallery"><i class="fa-regular fa-image"></i>Gallery</a></li>
+                        <!-- <li>socials</li>-------------- -->
+                        <!-- <li>currency</li> -->
+                        <li id="navListFirst" class="list__container--secondary"><button onclick="getInfoPage('#info__section--about', 40); menuToggle()">-About</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--contact'); menuToggle()">-Contact</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--subscriptions'); menuToggle()">-Subscriptions</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--contact'); menuToggle()">-Custom order</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--delivery'); menuToggle()">-Delivery</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--bonus'); menuToggle()">-Discounts & bonuses</button></li>
+                        <li class="list__container--secondary"><button onclick="menuToggle(); goToNewsletter(); closeInfoPage()">-Newsletter</button></li>
+                        <li class="list__container--secondary"><button onclick="getInfoPage('#info__section--privacy'); menuToggle()">-Privacy & cookies</button></li>
+                        <li class="list__item--currency">
+                            <div class="nav__currency--display">-Currency: GBP <i class="fa-solid fa-chevron-up"></i></div>
+                            <select class="nav__currency--select" onchange="selectedCurrency(this)">
+                                <option class="footer__currency--firstOption" style="display:none;" selected>£-GBP</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__socials">
+                    <ul>
+                        <li><i class="fa-brands fa-facebook-f"></i></li>
+                        <li><i class="fa-brands fa-instagram"></i></li>
+                        <li><i class="fa-brands fa-tiktok"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                    </ul>
+                </div>
+            </nav>
+            <%if(login == true && name.length <= 12){ %>
+                <h6 class="content__user--name"><%= name %></h6>
+                <button class="header__content--user <%= 'logged' %>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></button>
+            <% }else{ %> 
+                <button class="header__content--user"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></button>
+            <% } %> 
+            
+            <a href="/cart" class="header__content--cart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></i></a>
+            <!-- Menu -->
+            <button class="header__content--button">
+                <span class="content__menu--bar"></span>
+                <span class="content__menu--bar"></span>
+                <span class="content__menu--bar"></span>
+            </button>
+        </div>
+    </header>
+    <main class="main__content--shiftLeft">
+        <section class="main__banner hidden">
+            
+                <img class="main__banner--background" src="<%= backgroundImage %> " onload="bannerLoaded()">
+            
+            <div class="main__banner--socials">
+                <ul>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11.984 16.815c2.596 0 4.706-2.111 4.706-4.707 0-1.409-.623-2.674-1.606-3.538-.346-.303-.735-.556-1.158-.748-.593-.27-1.249-.421-1.941-.421s-1.349.151-1.941.421c-.424.194-.814.447-1.158.749-.985.864-1.608 2.129-1.608 3.538 0 2.595 2.112 4.706 4.706 4.706zm.016-8.184c1.921 0 3.479 1.557 3.479 3.478 0 1.921-1.558 3.479-3.479 3.479s-3.479-1.557-3.479-3.479c0-1.921 1.558-3.478 3.479-3.478zm5.223.369h6.777v10.278c0 2.608-2.114 4.722-4.722 4.722h-14.493c-2.608 0-4.785-2.114-4.785-4.722v-10.278h6.747c-.544.913-.872 1.969-.872 3.109 0 3.374 2.735 6.109 6.109 6.109s6.109-2.735 6.109-6.109c.001-1.14-.327-2.196-.87-3.109zm2.055-9h-12.278v5h-1v-5h-1v5h-1v-4.923c-.346.057-.682.143-1 .27v4.653h-1v-4.102c-1.202.857-2 2.246-2 3.824v3.278h7.473c1.167-1.282 2.798-2 4.511-2 1.722 0 3.351.725 4.511 2h7.505v-3.278c0-2.608-2.114-4.722-4.722-4.722zm2.722 5.265c0 .406-.333.735-.745.735h-2.511c-.411 0-.744-.329-.744-.735v-2.53c0-.406.333-.735.744-.735h2.511c.412 0 .745.329.745.735v2.53z"/></svg></li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></li>
+                    <li><svg viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
+                        <path d="
+                          M 630, 425
+                          A 195, 195 0 0 1 331, 600
+                          A 142, 142 0 0 0 428, 570
+                          A  70,  70 0 0 1 370, 523
+                          A  70,  70 0 0 0 401, 521
+                          A  70,  70 0 0 1 344, 455
+                          A  70,  70 0 0 0 372, 460
+                          A  70,  70 0 0 1 354, 370
+                          A 195, 195 0 0 0 495, 442
+                          A  67,  67 0 0 1 611, 380
+                          A 117, 117 0 0 0 654, 363
+                          A  65,  65 0 0 1 623, 401
+                          A 117, 117 0 0 0 662, 390
+                          A  65,  65 0 0 1 630, 425
+                          Z"/>
+                      </svg></li>
+                </ul>
+            </div>
+            <div class="heading-section">
+                <h4 id="heading">Gift Sets, Skin Care, Bath & Body Products</h4>
+            </div>
+            <div class="logo-container">
+                <div class="logo-image-container">
+                    <div class="bubble-container">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="logo-image-section1">
+                        <img class="logo-image1" src="/images/main/logoText.webp" onload="bannerLoaded()">
+                        <img class="logo-image2" src="/images/main/logo.webp" onload="bannerLoaded()">
+                    </div>
+                </div>
+            </div>
+            <!-- <link rel="stylesheet" href="intro.css"> -->
+        </section>
+        <div class="gallery__wrapper--title hidden">
+            <h3 class="title__gallery">Gallery</h3>
+            <h6 class="title__gallery--link"><i class="fa-regular fa-image"></i>see more</h6>
+        </div>
+        <section class="section__gallery hidden">
+            <div class="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                <% for(let i =0; i < galleryImages.length; i++){ %>
+                    <% if(i <= 2){ %> 
+                        <div data-blur="<%= galleryImages[i].blurHash %>" class="gallery__item--image">
+                            <img srcset="<%= galleryImages[i].imageUrlSmall %> 400w, <%= galleryImages[i].imageUrlLarge %> 600w" 
+                            sizes="(max-width: 1000px) 40vw, 100vw"
+                            src="<%= galleryImages[i].imageUrlSmall %>" draggable="false" onload="imageFade(this)">
+                        </div>
+                    <% }else if(i == galleryImages.length-1){ %> 
+                        <div data-blur="<%= galleryImages[i].blurHash %>" class="gallery__item--image">
+                            <img srcset="<%= galleryImages[i].imageUrlSmall %> 200w, <%= galleryImages[i].imageUrlLarge %> 600w"
+                            sizes="(max-width: 1000px) 40vw, 100vw"
+                            src="<%= galleryImages[i].imageUrlSmall %>" draggable="false" onload="imageFade(this)" loading="lazy">
+                        </div>
+                    <% }else{ %> 
+                        <div data-blur="<%= galleryImages[i].blurHash %>" class="gallery__item--image">
+                            <img srcset="<%= galleryImages[i].imageUrlSmall %> 400w, <%= galleryImages[i].imageUrlLarge %> 600w"
+                            sizes="(max-width: 1000px) 40vw, 100vw"
+                            src="<%= galleryImages[i].imageUrlSmall %>" draggable="false" onload="imageFade(this)" loading="lazy">
+                        </div>
+                    <% } %> 
+                <% } %>
+            </div>
+        </section>
+        <h3 class="title__products hidden">Products</h3>
+        <section class="products hidden">
+            <div class="filter glass">
+                <div class="filter-wrapper">
+                    <!-- <div class="filter-item">-</div> -->
+                    <!-- <div class="filter-item active-filter" onclick="filterClick(this)"> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg></div>
+                        <div class="filter-text">Sets</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.1 52.4L442.6 6.5C440.7 2.6 436.5 0 432.1 0s-8.5 2.6-10.4 6.5L405.2 52.4l-46 16.8c-4.3 1.6-7.3 5.9-7.2 10.4c0 4.5 3 8.7 7.2 10.2l45.7 16.8 16.8 45.8c1.5 4.4 5.8 7.5 10.4 7.5s8.9-3.1 10.4-7.5l16.5-45.8 45.7-16.8c4.2-1.5 7.2-5.7 7.2-10.2c0-4.6-3-8.9-7.2-10.4L459.1 52.4zm-132.4 53c-12.5-12.5-32.8-12.5-45.3 0l-2.9 2.9C256.5 100.3 232.7 96 208 96C93.1 96 0 189.1 0 304S93.1 512 208 512s208-93.1 208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5 12.5-32.8 0-45.3l-80-80zM200 192c-57.4 0-104 46.6-104 104v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-75.1 60.9-136 136-136h8c8.8 0 16 7.2 16 16s-7.2 16-16 16h-8z"/></svg></div>
+                        <div class="filter-text">Bath bombs</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-solid fa-shower"></i></div>
+                        <div class="filter-text">Gels</div>
+                    </div>
+                    <!-- <div class="filter-item">-</div> -->
+                    <div class="filter-item" onclick="filterClick(this)">
+                        <div class="filter-icon"><i class="fa-solid fa-soap"></i></i></div>
+                        <div class="filter-text">Bars/Salts/Rocks</div>
+                    </div>
+                    <div class="filter-slider"></div>
+                </div>
+            </div>
+            <div class="section__products--grid">
+                <template id="grid__item--template">
+                    <div class="products__grid--item" onclick="getProduct(this)">
+                        <div class="item__image--wrapper"></div>
+                        <div class="grid__item--textWrapper">
+                            <h5 class="grid__item--price"></h5>
+                            <h5 class="grid__item--name"></h5>
+                            <div class="grid__item--nameFade"></div>
+                            <div class="grid__item--infoIcon"><i class="fa-solid fa-circle-info"></i></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="section__products--loader">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg>
+            </div>
+        </section>
+        <footer>
+            <div class="footer__links">
+                <ul>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><button onclick="getInfoPage('#info__section--about')">About</button></li>
+                    <li><button onclick="getInfoPage('#info__section--contact')">Contact</li>
+                    <li><button onclick="getInfoPage('#info__section--subscriptions')">Subscriptions</button></li>
+                    <li><button onclick="getInfoPage('#info__section--contact')">Custom order</button></li>
+                    <li><button onclick="getInfoPage('#info__section--delivery')">Delivery</button></li>
+                    <li><button onclick="getInfoPage('#info__section--bonus')">Discounts & bonuses</button></li>
+                    <li><button onclick="getInfoPage('#info__section--privacy')">Privacy & cookies</button></li>
+                </ul>
+            </div>
+            <div class="footer__newsLetter">
+                <form id="footer__newsLetter--form">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input class="newsLetter__form--email" placeholder="Enter email" required type="email">
+                    <button type="submit"><i class="fa-solid fa-forward"></i></button>
+                    <h6>For new products and offers</h6>
+                </form>
+            </div>
+            <div class="footer__secondary__wrapper">
+                <div class="footer__currency">
+                    <h6 class="footer__currency--currencyDisplay">£-GBP<i class="fa-solid fa-chevron-up"></i></h6>
+                    <select onchange="selectedCurrency(this)">
+                        <option class="footer__currency--firstOption" style="display:none;" selected>£-GBP</option>
+                    </select>
+                </div>
+                <!-- <i class="fa-solid fa-angle-up"></i> -->
+                <div class="footer__socials">
+                    <ul>
+                        <li><i class="fa-brands fa-facebook-f"></i></li>
+                        <li><i class="fa-brands fa-instagram"></i></li>
+                        <li><i class="fa-brands fa-tiktok"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__final">
+                <h6>&copy2023 BeyondBasicBubbles</h6>
+                <div><button class="footer__final--button" onclick="getInfoPage('#info__section--privacy')">Privacy || cookies</button></div>
+            </div>
+        </footer>
+    </main>
+    <section class="section__profile--forms">
+        <div class="profile__forms--close"><i class="fa-solid fa-xmark"></i></div>
+        <% if(login == false){ %>
+            <h3 class="profile__forms--title">Create an account <br> to earn discounts</h3>
+        <div class="profile__forms--login">
+            <form id="forms__login--form" action="/login" method="POST">
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <label for="email">Email</label><br>
+                    <input type="text" name="email"><br>
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                    <input type="type" name="password">
+                </div>
+                <button class="form__submit--button" type="submit">login</button>
+            </form>
+        </div>
+        <div class="profile__forms--register">
+            <form id="forms__register--form" action="/register" method="POST">
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-regular fa-user"></i>
+                    <label for="name">Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-at"></i>
+                    <label for="email">Email</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="profile__forms--inputWrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="password">Password</label>
+                    <input type="type" name="password">
+                </div>
+                <button class="form__submit--button" type="submit">Create account</button>
+            </form>
+        </div>
+        <% }else if(login == true){ %>
+            <%= name %>
+            <div>Logged in</div>
+            <div>Current Orders</div>
+            <div>Past Orders</div>
+            <div>Points</div>
+            <form action="/profile/logout?_method=DELETE" method="POST">
+                <button type="submit">Log out</button>
+            </form>
+        <% } %> 
+    </section>
+    <section class="section__productPage">
+        <button class="back" onclick="backHome()"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="productPage__slider">
+                <div class="slider__wrapper--image">
+                    <!-- <img class="product-image" draggable="false"> -->
+                </div>
+            </div>
+            <div class="photo-bar-wrapper">
+                <template>
+                    <div class="photo-bar"></div>
+                </template>
+            </div>
+            <div class="product-info">
+                <h4 class="product-title"></h4>
+                <h4 class="product-price"></h4>
+                <div class="description-wrapper">
+                    <h4>Description</h4>
+                    <h5 class="product-description"></h5>
+                    <div class="description-overlay"></div>
+                </div>
+                <button class="options">options</button>
+                <button class="addToCart" onclick="addedToCart(this)">Add to cart</button>
+            </div>
+            <h3 class="review-title">Reviews</h3>
+            <div class="reviews-wrapper">
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+                <div class="review"></div>
+            </div>
+    </section>
+    <section class="section__info">
+        <div class="info__wrapper--close">
+            <button onclick="closeInfoPage()">Close<i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="info__section--about">
+            <h3>About</h3>
+            <p>
+                Hi Everyone! I'm Katie, the proud owner of Beyond Basic Bubbles!
+                 I am a Biomedical scientist that spends most of my days in a research laboratory,
+                but when I am not there you'll find me in my cosmetic workshop!<br><br>
+                I aim to create vibrant and fun bath/shower products for all ages and with tonnes 
+                of help from my customers, I have grown so much in 2021 (not physically, I have still barely made 5ft)! 
+                Thank you so much everyone for such a fantastic year! Here's to 2022!
+            </p>
+        </div>
+        <div id="info__section--contact">
+            <h3>Contact/Request custom order</h3>
+            <p>
+                BeyondBasicBubbles@gmail.com<br>
+                or<br>
+                <button class="info__button--createAccount" onclick="profile()">Create account</button> to send message
+            </p>
+        </div>
+        <div id="info__section--subscriptions">
+            <h3>Subscriptions</h3>
+            <p>
+                Upon <button class="info__button--createAccount" onclick="profile()">creating an account</button> you can add items into a subscription basket to receive monthly packages
+            </p>
+        </div>
+        <div id="info__section--delivery">
+            <h3>Delivery</h3>
+            <p>
+                Estimated: 3-9 days<br>
+                returns Policy: Not accepted, if there is an issue with the order please message
+            </p>
+        </div>
+        <div id="info__section--bonus">
+            <h3>Discounts & bonuses</h3>
+            <p>
+                After creating an account you can earn points with purchases to spend
+                on discounts and bonuses. Subscribe to the <button class="info__button--newsletter" onclick="closeInfoPage(); goToNewsletter()">Newsletter</button> to be 
+                the first to know about special offers and new products
+            </p>
+        </div>
+        <div id="info__section--privacy">
+            <h3>Privacy and cookies policy</h3>
+            <p>
+                Cookies are small data files that are sent from the browser to the server, 
+                we use this data for analytics to improve the store. It is also used to store
+                your items in your basket<br><br>
+                </p>
+                <ul>
+                    <h4>Data we collect:</h4>
+                    <li>Items stored in basket(essential)</li>
+                    <li>Unique page view</li>
+                    <li>Returning page view</li>
+                    <li>What products have been viewed</li>
+                    <li>What products have been purchased</li>
+                </ul>
+                <br>
+                <p>
+                Non-essential data is stored as a whole so no unique user can be identified, targeted, or have info sold 
+                to third-partys. Beyond Basic Bubbles cares about your privacy and are committed to being fully transparent.
+                If you would prefer to disable or enable non-essential cookies you can do it here:</p><br>
+                <h5>Non-essential cookies</h5>
+                <div class="info__wrapper--cookies">
+                    <button class="info__button--cookies">Enable</button>
+                    <button class="info__button--cookies">Disable</button>
+                </div>
+        </div>
+    </section>
+    <script src="/main.js"></script>
+    <script src="/currencyOptions.js"></script>
+</body>
+</html>

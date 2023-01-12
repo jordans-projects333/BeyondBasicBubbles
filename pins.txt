@@ -1,0 +1,116 @@
+-padding right on navbar mobile
+-scroll horizontal on mobile on pc
+-validation feedback on login/register
+-fix gallary touch
+==========================================================
+-footer + navlist
+-sign in and out/welcome
+-edit delete and add products
+-filter fixed
+-when click of navigation close it
+-pc version
+==========================================================
+product page
+reviews
+stock?
+fix animation chrome
+
+
+Gallery section overflowing x-------------
+currency converter------------------------
+Presentable on pc
+gallery, see more at top
+sign in ackowledgement--------------------
+navbar
+scroll animation--------------------------
+reviews
+one at a time loading products???
+hashblur images????
+intro animations???
+background loading???
+page with ts and cs-----------------------
+.env email--------------------------------
+unload last picture when return home------
+email newsletter--------------------------
+fix filter
+offers crossed out price
+share button
+image slider bar update
+when click on newletter in about, need to close product page
+be able to click off profile
+maybe give product name padding
+mongoose connect first
+
+
+try catch bare things
+validation messages
+
+svg > fontAwesome
+
+srcsets
+
+//////////////////////////////////////
+load product when blur and preload blur loaded
+need to lazy load gallary again
+??????????????????????????
+if(img.complete){
+   // do the work
+} else {
+   img.onload = () => {
+       // do the work
+   }
+}
+
+//////////////////////////////////
+search/filter idea
+put index of next product needed per category in database item
+//////////////////////
+
+///////////////////////////////
+redis.env
+redis for active products
+mongodb for all products
+fetch data 6 at a time make sure they are loaded in order until all products
+///////////////////////////////////////
+
+
+
+today ---- display in order
+local storage
+redis
+all products
+
+tomorrow ---- basket
+button animation
+fix filter
+reviews
+
+
+
+
+
+/// Redis
+/ SET name jordan
+/ GET name
+/ DEL name
+/ KEYS * - show all data
+/ flushall - delete data
+/clear - clean console
+expire name 10 -- name deletes in 10 seconds
+ttl name -- how much time to live does name have
+---------------------------
+array support
+lpush friends john -- left push/start, friends is key(rpush - right side)
+GET lrange friends 0 -1   -- get list/ index all
+lpop friends(rpop) -- remove from friends array
+----------------------------------
+Set is an array where every element in unique
+SADD products "product1"
+SREM(remove) products "product1"
+------------------------------------
+HSET person name kyle
+HSET person age 26
+HGET person name -- =kyle
+HGETALL person -- = 1.name/2.kyle/3.age/4.26
+HDEL
+HEXISTS -- returns true or false/1 or 0

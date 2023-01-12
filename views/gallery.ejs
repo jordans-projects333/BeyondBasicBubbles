@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/gallery.css">
+    <title>Document</title>
+</head>
+<body>
+    <Form id="form__review" action="/review" method="post">
+        <label>Rating</label>
+        <input id="form__review--rating" name="rating" type="number">
+        <textarea id="form__review--content" name="text" form="form__review"></textarea>
+        <button form="form__review" type="submit">Submit review</button>
+    </Form>
+    <div id="imgContainer"></div>
+    <script src="/blurhash.js"></script>
+    <script src="/gallery.js"></script>
+</body>
+</html>

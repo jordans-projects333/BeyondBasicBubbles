@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/icons/css/all.min.css">
+    <link rel="stylesheet" href="/admin/customize.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img class="header__logo" src="/images/headerLogo.png">
+        <h1 class="header__title">Beyond Basic Bubbles<span class="header__title--subtext">Admin</span></h1>
+        <nav>
+            <ul class="nav__list">
+                <li class="nav__list--item active"><a href="/admin">Stats</a></li>
+                <li class="nav__list--item">Orders</li>
+                <li class="nav__list--item">Messages</li>
+                <li class="nav__list--item">Subscriptions</li>
+                <li class="nav__list--item">Revenue</li>
+                <li class="nav__list--item"><a href="/admin/customize">Customization</a></li>
+                <li class="nav__list--item"><a href="/admin/newsletter">Newsletter</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-navigation">
+            <div class="mobile-nav-bar-container">
+                <span class="mobile-nav-bar"></span>
+                <span class="mobile-nav-bar"></span>
+                <span class="mobile-nav-bar"></span>
+            </div>
+        </div>
+    </header>
+    <section class="section__products--grid">
+        <template id="grid__item--template">
+            <div class="products__grid--item">
+            <!-- <div class="products__grid--item" onclick="getProduct(this)"> -->
+                <div class="grid__item--delete" onmouseleave="deleteLeave(this)" onclick="deleteClicked(this)">
+                    <h3 class="item__delete--text">Are you sure?</h3>
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+                <div class="grid__item--edit" onclick="editClicked(this)">
+                    <i class="fa-solid fa-square-pen"></i>
+                </div>
+                <img class="grid__item--image">
+                <div class="grid__item--textWrapper">
+                    <h5 class="grid__item--price"></h5>
+                    <h5 class="grid__item--name"></h5>
+                    <!-- <div class="grid__item--infoIcon"><i class="fa-solid fa-circle-info"></i></div> -->
+                </div>
+            </div>
+        </template>
+    </section>
+    <section class="section__editBar">
+        <div class="section__editBar--item" id="editBar__item--add"><i class="fa-solid fa-plus"></i></div>
+        <div class="section__editBar--item" id="editBar__item--edit"><i class="fa-solid fa-pen"></i></div>
+        <div class="section__editBar--item" id="editBar__item--delete"><i class="fa-solid fa-trash"></i></div>
+    </section>
+    <section class="section__editBar--addForm">
+        <form id="product__add--form" enctype="multipart/form-data"> 
+            <div class="add__form--wrapper">
+                <label for="name">Name</label>
+                <input type="text" name="name" required>
+                <label for="price">Price</label>
+                <input type="text" name="price" required>
+                <label for="product">Cover image</label>
+                <input type="file" name="product" required>
+                <label for="description">Description</label>
+                <textarea name="description" form="product__add--form" required></textarea>
+                <label for="category">Category</label>
+                <select name="category">
+                    <option value="bomb">Bomb</option>
+                    <option value="salt/bars">Salt/bars</option>
+                    <option value="set">Set</option>
+                    <option value="rocks">Rocks</option>
+                </select>
+                <label for="priority">Priority</label>
+                <input type="number" name="priority">
+            </div>
+            <button type="submit" form="product__add--form">Upload</button>
+        </form>
+    </section>
+    <section class="section__editBar--editForm">
+        <i class="fa-solid fa-circle-xmark" onclick="closeEdit(this)"></i>
+        <form id="product__edit--form" enctype="multipart/form-data"> 
+            <div class="edit__form--wrapper">
+                <label for="originalName">name</label>
+                <input class="edit__form--originalName" type="text" name="originalName" required>
+                <label for="name">Edit name</label>
+                <input class="edit__form--name" type="text" name="name" required>
+                <label for="price">Edit Price</label>
+                <input class="edit__form--price" type="text" name="price" required>
+                <label for="product">Edit cover image</label>
+                <input type="file" name="product" onchange="onFileSelected(event)">
+                <label for="description">Edit description</label>
+                <textarea name="description" form="product__edit--form"></textarea>
+                <label for="category">Edit category</label>
+                <select name="category">
+                    <option value="bomb">Bomb</option>
+                    <option value="salt/bars">Salt/bars</option>
+                    <option value="set">Set</option>
+                    <option value="rocks">Rocks</option>
+                </select>
+                <label for="priority">Edit priority value</label>
+                <input type="number" name="priority">
+            </div>
+            <button type="submit" form="product__edit--form">Save changes</button>
+        </form>
+    </section>
+    <script src="/admin/customize.js"></script>
+</body>
+</html>

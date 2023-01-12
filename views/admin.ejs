@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <script src="https://kit.fontawesome.com/c18fd5402b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header --------------------------------------------------------------------------------------------------------------------------------------->
+    <header>
+        <img class="header__logo" src="/images/headerLogo.png">
+        <h1 class="header__title">Beyond Basic Bubbles<span class="header__title--subtext">Admin</span></h1>
+        <nav>
+            <ul class="nav__list">
+                <li class="nav__list--item active">Stats</li>
+                <li class="nav__list--item">Orders</li>
+                <li class="nav__list--item">Messages</li>
+                <li class="nav__list--item">Subscriptions</li>
+                <li class="nav__list--item">Revenue</li>
+                <li class="nav__list--item"><a href="/admin/customize">Customization</a></li>
+                <li class="nav__list--item"><a href="/admin/newsletter">Newsletter</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-navigation">
+            <div class="mobile-nav-bar-container">
+                <span class="mobile-nav-bar"></span>
+                <span class="mobile-nav-bar"></span>
+                <span class="mobile-nav-bar"></span>
+            </div>
+        </div>
+    </header>
+    <!-- Graph --------------------------------------------------------------------------------------------------------------------------------------->
+    <section class="section__graph">
+        <canvas id="overall__graph"></canvas>
+        
+        <div class="graph__months--wrapper">
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+            <div class="graph__months--item"></div>
+        </div>
+        <div class="graph__year--wrapper">
+            <div class="graph__year--item"><i class="fa-solid fa-arrow-left"></i>February<i class="fa-solid fa-arrow-right"></i></div>
+            <!-- <div class="graph__year--item">2024</div>
+            <div class="graph__year--item">2025</div> -->
+        </div>
+    </section>
+    <div class="section__container">
+        <div class="section__container--container">
+            <section class="section__stats--one">
+                <div class="section__stats--item">
+                    <i class="fa-solid fa-eye"></i>
+                    <h5>New page view</h5>
+                </div>
+                <div class="section__stats--item">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <h5>Returned to site</h5>
+                    <p>(After 24h)</p>
+                </div>
+                <div class="section__stats--item"> 
+                    <i class="fa-solid fa-users"></i>
+                    <h5>Signed up</h5>
+                </div>
+                <div class="section__stats--item"> 
+                    <i class="fa-solid fa-dolly"></i>
+                    <h5>Made a purchase</h5>
+                </div>
+                <div class="section__stats--item"> 
+                    <i class="fa-solid fa-gifts"></i>
+                    <h5>Bought a subscription</h5>
+                </div>
+                <!-- <div class="section__stats--item"> 
+                    ????? ???????
+                </div> -->
+                
+            </section>
+            <section class="section__stats--two">
+                <div class="section__stats--item2">
+                    <i class="fa-solid fa-gift"></i>
+                    <h5>Subscriptions:</h5>
+                    <p>£/month</p>
+                </div>
+                <div class="section__stats--item2"> 
+                    <i class="fa-regular fa-credit-card"></i>
+                    <h5>Total revenue:</h5>
+                </div>
+                <div class="section__stats--item2"> 
+                    <i class="fa-regular fa-circle-user"></i>
+                    <h5>Site visits today:</h5>
+                </div>
+            </section>
+        </div>
+        <!-- <section class="section__products--graph">
+            <canvas id="products__graph"></canvas><br>
+        </section> -->
+    </div>
+    Product stats
+    <section class="section__products">
+        <template>
+            <div class="section__products--item">
+                <div class="products__item--photo">
+                    <img>
+                </div>
+                <h3></h3>
+            </div>
+        </template>
+    </section>
+    <script src="admin/admin.js"></script>
+    <script src="admin/stats.js"></script>
+</body>
+</html>

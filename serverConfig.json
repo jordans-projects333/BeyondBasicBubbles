@@ -1,0 +1,47 @@
+{
+  "lastServerUpdate": 1673328143563,
+  "currentNumberOFActiveProducts": 5,
+  "backgroundImage": "/images/main/background.webp",
+  "galleryImages": [
+    {
+      "blurHash": "UVM~-.En%qNZ_M%FV{%K.4s.x@Sx--oeWAoM",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage1--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage1--600.webp"
+    },
+    {
+      "blurHash": "UHNA9]S~*C$zrftOTENt-}n6oxS#={RWWSeY",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage7--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage7--600.webp"
+    },
+    {
+      "blurHash": "UIKn0xUzK=0wp^?wid$fXeE1R:-pMJ$%NHtl",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage3--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage3--600.webp"
+    },
+    {
+      "blurHash": "UGL428.Z.g%2tk%rj4D7R7jCk?r=IcnAR#%x",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage4--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage4--600.webp"
+    },
+    {
+      "blurHash": "UII#_uhf4R140DmP+E-pxSIT,A={zTtnKSIq",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage5--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage5--600.webp"
+    },
+    {
+      "blurHash": "UVN];7IApcM|-pofWEnQ.Tt7ofxGRnf9kSoa",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage6--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage6--600.webp"
+    },
+    {
+      "blurHash": "UZPiSf?uq7VH%5NFXfsEplepm]x[KHr^R7NZ",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage2--400.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage2--600.webp"
+    },
+    {
+      "blurHash": "UGL428.Z.g%2tk%rj4D7R7jCk?r=IcnAR#%x",
+      "imageUrlSmall": "/images/galleryPreview/galleryImage8--200.webp",
+      "imageUrlLarge": "/images/galleryPreview/galleryImage8--600.webp"
+    }
+  ]
+}
